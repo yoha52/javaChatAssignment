@@ -1,10 +1,12 @@
 ADAMA SCIENCE AND TECHNOLOGY UNIVERSITY
 School of Electrical and Computing
 Department of CSE
-Course Name: advanced progranming
-Project Title: chat application mini project
-Name: yohannes desta
+Course Name: Advanced Programming
+Assignment Title: SOCKET PROGRAMMING Mini-Project
+Name: Yohannes Desta
 ID_No: UGR/35682/16
 Section: 3
 Group: 5
+
+
 
