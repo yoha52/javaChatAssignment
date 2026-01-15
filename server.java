@@ -4,6 +4,7 @@ import java.util.*;
 
 public class server {
     public static void main(String[] args) {
+        //initilize the io objects 
         Socket socket;
         InputStreamReader in;
         OutputStreamWriter out;
@@ -12,12 +13,14 @@ public class server {
         ServerSocket serverSocket;
 
         try {
+            // start the server
             serverSocket = new ServerSocket(8100);
             System.out.println("wait to connect");
             while (true) {
                 
                 try {
                     socket = serverSocket.accept();
+                    //bind the io objects to the socket
                     in = new InputStreamReader(socket.getInputStream());
                     out = new OutputStreamWriter(socket.getOutputStream());
                     bfin = new BufferedReader(in);
@@ -26,12 +29,12 @@ public class server {
                     System.out.print(">-");
 
                     while (true) {
-
+// to read client response 
                         String msgfromclient = bfin.readLine();
                         System.out.println("Client: " + msgfromclient);
-
+//this line of code is to write to the client 
                         Scanner scanner = new Scanner(System.in);
-                        String reply = scanner.nextLine();
+                        String reply = scanner.nextLine();    
                         bfout.write(reply);
                         bfout.newLine();
                         bfout.flush();
@@ -41,13 +44,14 @@ public class server {
                         if (msgfromclient.equalsIgnoreCase("bye"))
                             break;
                     }
+// close the connedtoion
                     socket.close();
                     in.close();
                     out.close();
                     bfin.close();
                     bfout.close();
                 } catch (IOException e) {
-                }
+                }    
 
             }
 
@@ -55,3 +59,4 @@ public class server {
         }
     }
 }
+
